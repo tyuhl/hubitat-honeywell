@@ -976,7 +976,8 @@ def setThermosatSetPoint(com.hubitat.app.DeviceWrapper device, mode=null, autoCh
 
     // For LCC devices thermostatSetpointStatus = "NoHold" will return to schedule. "TemporaryHold" will hold the set temperature until "nextPeriodTime". "PermanentHold" will hold the setpoint until user requests another change.
     // BugBug: Need to include nextPeriodTime if TemporaryHoldIs true
-    if (honewellDeviceID.startsWith("LCC"))
+    // HACK: Temporary - force thermostat to send thermostatSetpointStatus for 9000 to prove my theory
+    if (true) //(honewellDeviceID.startsWith("LCC"))
     {
         body = [
                 mode:mode,
